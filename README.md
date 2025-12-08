@@ -6,7 +6,10 @@
 
 `SEMESTRE: 6º`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+## MedLink
+
+MedLink é uma plataforma inovadora integrando soluções em saúde para pacientes, profissionais e instituições, facilitando o acesso, organização e otimização dos cuidados e processos clínicos.
+
 
 ## Integrantes
 
@@ -21,6 +24,16 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 ## Orientador
 
 * Kleber Jacques Ferreira de Souza
+
+## Tecnologias Utilizadas
+
+- **Backend:** Java 17, Spring Boot (Spring Web, Spring Data JPA com Hibernate, Spring Security, Spring Validation), MySQL (via Docker), autenticação JWT.
+- **Frontend Web:** React.js, Redux Toolkit, TypeScript, Material-UI/Tailwind CSS, Axios.
+- **Mobile:** Flutter, JavaScript/TypeScript, Axios/Fetch API.
+- **Infraestrutura e DevOps:** Docker, AWS (EC2 para backend, S3 para arquivos, WebSocket), Maven (backend), NPM/Yarn (frontend/mobile), Git & GitHub.
+
+Essas tecnologias garantem escalabilidade, segurança, integração eficiente entre plataformas e experiência amigável tanto na web quanto no mobile.
+
 
 # Planejamento
 
