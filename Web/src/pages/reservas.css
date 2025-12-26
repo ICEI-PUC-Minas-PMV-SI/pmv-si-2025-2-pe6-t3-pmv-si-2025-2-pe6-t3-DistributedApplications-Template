@@ -1,0 +1,225 @@
+:root{
+  /* Cores */
+  --bg-bege:#F5F1E8;
+  --oliva:#3D5B3D;
+  --oliva-2:#5F7F5F;
+  --marrom:#6E4F3A;
+  --card:#fff;
+  --borda:#E8E1D6;
+  --texto:#2B2B2B;
+
+  /* Tokens */
+  --radius:16px;
+  --radius-sm:12px;
+  --shadow-lg:0 20px 40px rgba(0,0,0,.10);
+  --shadow-md:0 10px 22px rgba(0,0,0,.10);
+  --shadow-sm:0 4px 12px rgba(0,0,0,.06);
+  --focus:0 0 0 3px rgba(93,122,93,.35);
+}
+
+/* ===== Container base ===== */
+.rr-root{
+  min-height:100vh;
+  background:
+    linear-gradient(135deg, var(--bg-bege) 0%, #EFE9DD 100%),
+    repeating-linear-gradient(45deg, rgba(0,0,0,.015) 0 2px, transparent 2px 6px);
+  display:grid;
+  place-items:center;
+  padding:clamp(12px,3vw,28px);
+}
+.rr-card{
+  width:min(100%,1100px);
+  background:var(--card);
+  border:1px solid var(--borda);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-lg);
+  padding:clamp(16px,2.6vw,26px);
+  animation:rr-fade .25s ease-out;
+}
+@keyframes rr-fade{from{opacity:.75; transform:translateY(6px)} to{opacity:1; transform:none}}
+
+/* ===== Topo ===== */
+.rr-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:8px;
+}
+.rr-title{
+  margin:0;
+  color:var(--marrom);
+  font-weight:800;
+  letter-spacing:.2px;
+  font-size:clamp(20px,2.4vw,26px);
+}
+.rr-actions{
+  display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+}
+.rr-link{
+  color:#0b5ed7;
+  text-decoration:none;
+  font-weight:600;
+}
+.rr-link:hover{ text-decoration:underline }
+.rr-link:focus-visible{ outline:none; box-shadow:var(--focus); border-radius:8px; }
+
+/* ===== Toolbar ===== */
+.rr-toolbar{
+  display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+  margin:clamp(10px,2vw,18px) 0;
+}
+.rr-input,.rr-select{
+  padding:10px 12px;
+  border:1px solid var(--borda);
+  border-radius:10px;
+  background:#fff;
+  font-size:14px;
+  min-width:230px;
+}
+.rr-input::placeholder{ color:#9b9b9b }
+.rr-input:focus-visible,.rr-select:focus-visible{
+  outline:none; border-color:var(--oliva-2); box-shadow:var(--focus);
+}
+.rr-btn{
+  padding:10px 12px;
+  border-radius:10px;
+  border:1px solid transparent;
+  font-weight:700;
+  cursor:pointer;
+  font-size:14px;
+  transition:filter .15s ease, transform .04s ease, box-shadow .15s ease;
+  will-change: filter, transform;
+}
+.rr-btn:focus-visible{ outline:none; box-shadow:var(--focus); }
+.rr-btn:active{ transform:translateY(1px) }
+.rr-btn[disabled]{ opacity:.55; cursor:not-allowed }
+.rr-btn--primary{
+  background:var(--oliva-2);
+  color:#fff;
+  border-color:var(--oliva-2);
+}
+.rr-btn--primary:hover{ filter:brightness(.96) }
+.rr-btn--ghost{
+  background:#fff;
+  border:1px solid var(--borda);
+  color:#333;
+}
+.rr-btn--ghost:hover{ filter:brightness(.98) }
+.rr-help{ font-size:12px; color:#777; }
+
+/* ===== Lista (cards/linhas) ===== */
+.rr-list{
+  display:grid;
+  gap:10px;
+}
+.rr-row{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  align-items:center;
+  padding:12px;
+  border:1px solid #eee;
+  border-radius:12px;
+  background:#fff;
+  box-shadow:var(--shadow-sm);
+  transition:box-shadow .15s ease, background .15s ease, border-color .15s ease;
+}
+.rr-row:hover{ background:#fffdfb; box-shadow:var(--shadow-md) }
+.rr-row:focus-within{ border-color: var(--oliva-2); box-shadow: var(--focus); }
+.rr-td{ min-width:0 }
+.rr-item-title{
+  font-weight:700;
+  color:var(--texto);
+  margin-bottom:2px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.rr-item-meta{
+  color:#666;
+  font-size:13px;
+  line-height:1.4;
+}
+
+/* Pills de status */
+.rr-pill{
+  font-size:12px;
+  padding:4px 10px;
+  border-radius:999px;
+  border:1px solid transparent;
+  white-space:nowrap;
+  font-weight:700;
+  display:inline-flex;
+  align-items:center;
+  float: right;
+  gap:6px;
+}
+.rr-pill--aberta      { background:#E6F1FF; color:#104A86; border-color:#BDD6FF; }
+.rr-pill--confirmada  { background:#e6f6e6; color:#1b7f1b; border-color:#cceccc; }
+.rr-pill--cancelada   { background:#fde2e1; color:#b21f1f; border-color:#f5c2c0; }
+
+/* Vazio/erro leve */
+.rr-empty{
+  padding:16px;
+  background:#faf9f7;
+  border:1px dashed var(--borda);
+  border-radius:12px;
+  color:#6b6b6b;
+}
+
+/* ===== Tabela (opcional) ===== */
+.rr-table-wrap{ width:100%; overflow:auto; border-radius:12px; border:1px solid #f0ebe2; }
+.rr-table{ width:100%; border-collapse:collapse; background:#fff; }
+.rr-th,.rr-td{ text-align:left; padding:12px 14px; border-bottom:1px solid #eee; }
+.rr-th{
+  color:#6b6b6b; font-weight:800; position:sticky; top:0; background:#fffefc; z-index:1;
+}
+.rr-tr:nth-child(even){ background:#fffdfb } /* zebra opcional */
+
+/* ===== Formulário ===== */
+.rr-form{ display:grid; gap:14px; }
+.rr-grid{ display:grid; grid-template-columns:repeat(12,1fr); gap:12px; }
+.rr-col-12{ grid-column:span 12; }
+.rr-col-6 { grid-column:span 6; }
+.rr-col-4 { grid-column:span 4; }
+.rr-col-3 { grid-column:span 3; }
+.rr-label{ font-size:14px; color:var(--texto); font-weight:600; }
+
+/* ===== Modos de densidade (opcional) ===== */
+.rr--dense .rr-row{ padding:10px }
+.rr--dense .rr-input,.rr--dense .rr-select,.rr--dense .rr-btn{ padding:8px 10px; font-size:13px }
+
+/* ===== Skeleton simples (opcional) ===== */
+.rr-skel{
+  height:14px; border-radius:8px;
+  background:linear-gradient(90deg,#eee, #f6f6f6 40%, #eee 80%);
+  background-size:300% 100%;
+  animation:rr-shimmer 1.1s infinite linear;
+}
+@keyframes rr-shimmer{0%{background-position:0 0}100%{background-position:100% 0}}
+
+/* ===== Responsivo ===== */
+@media (max-width: 860px){
+  .rr-row{ grid-template-columns:1fr; gap:8px; }
+}
+@media (max-width: 760px){
+  .rr-col-6,.rr-col-4,.rr-col-3{ grid-column:span 12; }
+  .rr-btn{ width:100%; text-align:center; }
+  .rr-input,.rr-select{ min-width:unset; width:100%; }
+}
+
+/* ===== Acessibilidade ===== */
+@media (prefers-reduced-motion: reduce){
+  .rr-card,.rr-row,.rr-btn{ animation:none !important; transition:none !important; }
+}
+@media (forced-colors: active){
+  .rr-btn:focus-visible,.rr-link:focus-visible{ outline: 2px solid Highlight; box-shadow:none }
+}
+
+/* ===== Print ===== */
+@media print{
+  .rr-root{ background:#fff; padding:0 }
+  .rr-card{ box-shadow:none; border:none; padding:0 }
+  .rr-toolbar,.rr-actions{ display:none !important; }
+}

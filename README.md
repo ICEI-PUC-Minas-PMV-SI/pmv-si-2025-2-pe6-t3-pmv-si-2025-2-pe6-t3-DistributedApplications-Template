@@ -1,4 +1,4 @@
-# TÍTULO DO PROJETO
+# Hotel Fazenda Capitólio
 
 `CURSO: Sistemas de Informação`
 
@@ -6,20 +6,20 @@
 
 `SEMESTRE: 6º`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+O projeto visa desenvolver uma solução distribuída para um hotel fazenda localizado no município de Capitólio em Minas Gerais, a solução tem como objetivo oferecer a hospedagem e o controle de consumo dos hóspedes por meio de um sistema que elimine controles manuais dos funcionários, ofereça confiabilidade e disponibilidade das informações aos gestores do hotel para tomada de decisão.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
-* Nome completo do aluno 5
-* Nome completo do aluno 6
+* Junio dos Reis Firmino
+* Déborah Thaís de Matos
+* Raphael Lucas Oliveira dos Santos
+* Andre Murilo Neves Vasconcelos
+* Carlos Eduardo de Lima Assis
+
 
 ## Orientador
 
-* Nome completo do professor 1
+* Kleber Jacques Ferreira de Souza
 
 # Planejamento
 

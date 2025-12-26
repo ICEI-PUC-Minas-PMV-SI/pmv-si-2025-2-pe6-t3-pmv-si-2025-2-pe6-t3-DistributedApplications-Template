@@ -1,0 +1,123 @@
+:root{
+  --bg-bege:#F5F1E8;
+  --oliva:#3D5B3D;
+  --oliva-claro:#5F7F5F;
+  --marrom:#6E4F3A;
+  --card:#FFFFFF;
+  --borda:#E8E1D6;
+  --texto:#2B2B2B;
+  --shadow-lg: 0 20px 40px rgba(0,0,0,.10);
+}
+
+.login-root{
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg, var(--bg-bege) 0%, #EFE9DD 100%);
+  padding:24px;
+}
+
+/* CARD controla as bordas; overflow evita “vazar” do hero */
+.login-card{
+  width:min(100%, 420px);
+  background:var(--card);
+  border:1px solid var(--borda);
+  border-radius:18px;
+  box-shadow:var(--shadow-lg);
+  overflow:hidden;           /* <- importante */
+}
+
+/* Faixa verde do topo */
+.login-hero{
+  background:linear-gradient(135deg, var(--oliva) 0%, var(--oliva-claro) 100%);
+  padding:22px 24px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* Logo branca com leve glow para destacar */
+.login-logo{
+  width:96px;
+  height:auto;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.35)) brightness(1.02);
+  user-select:none;
+}
+
+/* Área do conteúdo */
+.login-body{
+  padding:26px 26px 28px;
+}
+
+.login-title{
+  margin:6px 0 4px;
+  font-size:1.6rem;
+  line-height:1.2;
+  color:var(--marrom);
+  text-align:center;
+  font-weight:800;
+}
+
+.login-subtitle{
+  margin:0 0 18px;
+  text-align:center;
+  color:var(--oliva);
+  font-weight:600;
+}
+
+/* Form */
+.login-form{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.login-label{
+  font-size:14px;
+  color:var(--texto);
+  margin-top:6px;
+}
+
+.login-input{
+  padding:11px 12px;
+  border:1px solid var(--borda);
+  border-radius:10px;
+  outline:none;
+  font-size:14px;
+  background:#fff;
+  transition:border-color .2s ease, box-shadow .2s ease;
+}
+
+.login-input:focus{
+  border-color:#D3D9CF; /* borda mais suave */
+  box-shadow:0 0 0 3px rgba(93,122,93,.25);
+}
+
+/* Mensagem de erro */
+.login-error{
+  background:#fde2e1;
+  color:#b21f1f;
+  padding:8px 10px;
+  border-radius:8px;
+  font-size:13px;
+  text-align:center;
+  margin-top:4px;
+}
+
+/* Botão com alinhamento central perfeito */
+.login-button{
+  margin-top:12px;
+  padding:12px 16px;
+  border:none;
+  border-radius:10px;
+  background:var(--oliva);
+  color:#fff;
+  font-weight:700;
+  font-size:15px;
+  line-height:1;      /* evita “desalinho” vertical */
+  cursor:pointer;
+  transition:transform .15s ease, background .25s ease;
+}
+
+.login-button:hover{ background:var(--oliva-claro); transform:translateY(-1px); }
+.login-button:disabled{ background:#B6B6B6; cursor:not-allowed; }

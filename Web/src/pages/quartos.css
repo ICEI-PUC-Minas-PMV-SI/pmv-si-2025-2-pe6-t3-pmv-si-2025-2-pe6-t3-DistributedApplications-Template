@@ -1,0 +1,299 @@
+:root {
+  /* 🎨 Paleta de cores */
+  --bg-bege: #F5F1E8;
+  --oliva: #3D5B3D;
+  --oliva-claro: #5F7F5F;
+  --oliva-soft: #6C8C6C;
+  --marrom: #6E4F3A;
+  --card: #FFFFFF;
+  --borda: #E8E1D6;
+  --texto: #2B2B2B;
+
+  /* 🧩 Tokens de design */
+  --radius: 16px;
+  --radius-sm: 12px;
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, .10);
+  --shadow-md: 0 10px 22px rgba(0, 0, 0, .10);
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, .05);
+  --focus: 0 0 0 3px rgba(93, 122, 93, .30);
+}
+
+/* ========== Estrutura base ========== */
+.qr-root {
+  min-height: 100vh;
+  background:
+    linear-gradient(135deg, var(--bg-bege) 0%, #EFE9DD 100%),
+    repeating-linear-gradient(45deg, rgba(0,0,0,.015) 0 2px, rgba(0,0,0,0) 2px 6px);
+  display: grid;
+  place-items: center;
+  padding: clamp(12px, 3vw, 32px);
+}
+
+.qr-card {
+  width: min(100%, 1150px);
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: clamp(18px, 2.8vw, 30px);
+  animation: fadeIn .4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ========== Cabeçalho ========== */
+.qr-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: clamp(12px, 2vw, 20px);
+  flex-wrap: wrap;
+}
+
+.qr-title {
+  margin: 0;
+  font-size: clamp(20px, 2.4vw, 28px);
+  color: var(--marrom);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.qr-icon {
+  opacity: .85;
+}
+
+.qr-link {
+  color: var(--oliva-soft);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: color .15s ease;
+}
+
+.qr-link:hover { color: var(--oliva); }
+
+.qr-link:focus-visible {
+  outline: none;
+  box-shadow: var(--focus);
+  border-radius: 6px;
+}
+
+/* ========== Toasts ========== */
+.qr-toast {
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  border: 1px solid transparent;
+  animation: fadeIn .25s ease;
+}
+
+.qr-toast--ok {
+  background: #e6f6e6;
+  color: #107010;
+  border-color: #cceccc;
+}
+
+.qr-toast--erro {
+  background: #fde2e1;
+  color: #b21f1f;
+  border-color: #f5c2c0;
+}
+
+/* ========== Toolbar / filtros ========== */
+.qr-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: clamp(14px, 2vw, 22px);
+}
+
+.qr-toolbar label {
+  font-size: 14px;
+  color: var(--texto);
+  font-weight: 500;
+}
+
+.qr-input,
+.qr-select {
+  padding: 10px 12px;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  background: #fff;
+  font-size: 14px;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.qr-input:focus-visible,
+.qr-select:focus-visible {
+  outline: none;
+  border-color: var(--oliva-soft);
+  box-shadow: var(--focus);
+}
+
+.qr-help {
+  font-size: 13px;
+  color: #6b6b6b;
+  margin-bottom: 10px;
+}
+
+/* ========== Grid de quartos ========== */
+.qr-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  gap: clamp(14px, 2.2vw, 22px);
+}
+
+/* ========== Card do quarto ========== */
+.qr-room {
+  background: #fff;
+  border: 1px solid var(--borda);
+  border-radius: var(--radius-sm);
+  padding: clamp(14px, 1.8vw, 18px);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: .20s ease;
+}
+
+.qr-room:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Cabeçalho */
+.qr-roomHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.qr-roomTitle {
+  font-size: clamp(15px, 1.9vw, 17px);
+  font-weight: 700;
+  color: var(--texto);
+}
+
+/* Meta do quarto */
+.qr-roomMeta {
+  color: #575757;
+  font-size: 13px;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* Badge de capacidade */
+.qr-capacity {
+  margin-top: 6px;
+  padding: 4px 10px;
+  font-size: 12px;
+  color: var(--oliva);
+  background: #e9f0ea;
+  border-radius: 999px;
+  font-weight: 600;
+  display: inline-block;
+  border: 1px solid #d4e2d4;
+}
+
+/* ========== Pílulas de status ========== */
+.qr-pill {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.qr-pill--livre {
+  background: #e6f6e6;
+  color: #157a15;
+  border: 1px solid #cceccc;
+}
+
+.qr-pill--ocupado {
+  background: #fde2e1;
+  color: #b21f1f;
+  border: 1px solid #f5c2c0;
+}
+
+.qr-pill--manutencao {
+  background: #fff6e0;
+  color: #9a6b00;
+  border: 1px solid #ffe5a3;
+}
+
+/* ========== Botões ========== */
+.qr-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.qr-btn {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  transition: filter .15s ease, background .15s ease;
+}
+
+.qr-btn--primary {
+  background: var(--oliva-soft);
+  border-color: var(--oliva-soft);
+  color: #fff;
+}
+
+.qr-btn--primary:hover {
+  filter: brightness(.93);
+}
+
+.qr-btn--danger {
+  background: #f1ece6;       
+  border-color: #f1ece6; 
+  color: #4B3C2F;           
+}
+
+.qr-btn--danger:hover {
+  filter: brightness(.92);
+}
+
+.qr-btn--ghost {
+  background: #fff;
+  color: #333;
+  border: 1px solid var(--borda);
+}
+
+.qr-btn[disabled] {
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+/* ========== Responsivo ========== */
+@media (max-width: 820px) {
+  .qr-room:hover { transform: none; }
+}
+
+@media (max-width: 540px) {
+  .qr-actions { flex-direction: column; }
+  .qr-btn { width: 100%; }
+}
+
+/* ========== Redução de movimento ========== */
+@media (prefers-reduced-motion: reduce) {
+  .qr-room,
+  .qr-btn,
+  .qr-toast {
+    transition: none !important;
+  }
+}

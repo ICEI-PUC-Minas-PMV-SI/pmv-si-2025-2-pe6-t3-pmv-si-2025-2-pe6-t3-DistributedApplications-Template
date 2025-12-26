@@ -1,0 +1,127 @@
+:root{
+  --bg-bege:#F5F1E8;
+  --oliva:#3D5B3D;
+  --oliva-2:#5F7F5F;
+  --marrom:#6E4F3A;
+  --borda:#E8E1D6;
+  --card:#fff;
+  --texto:#2B2B2B;
+  --shadow-md:0 10px 22px rgba(0,0,0,.10);
+  --focus:0 0 0 3px rgba(93,122,93,.35);
+}
+
+/* ===== Página base ===== */
+.u-wrapper{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:
+    linear-gradient(135deg, var(--bg-bege) 0%, #EFE9DD 100%),
+    repeating-linear-gradient(45deg, rgba(0,0,0,.015) 0 2px, transparent 2px 6px);
+  padding:24px;
+}
+
+/* ===== Card principal ===== */
+.u-card{
+  width:min(420px, 100%);
+  background:var(--card);
+  border:1px solid var(--borda);
+  border-radius:16px;
+  box-shadow:var(--shadow-md);
+  padding:28px 26px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  animation:fadeIn .25s ease-out;
+}
+@keyframes fadeIn{from{opacity:.7; transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ===== Cabeçalho com título + voltar ===== */
+.u-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  margin-bottom:8px;
+}
+.u-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:800;
+  color:var(--marrom);
+  font-size:clamp(20px,2vw,26px);
+}
+.u-back{
+  text-decoration:none;
+  color:#0b5ed7;
+  font-weight:600;
+  transition:color .15s ease;
+}
+.u-back:hover{
+  text-decoration:underline;
+  color:#084298;
+}
+
+/* ===== Campos ===== */
+.u-label{
+  font-size:14px;
+  color:var(--texto);
+  font-weight:600;
+  margin-top:4px;
+}
+.u-input, .u-select{
+  padding:10px 12px;
+  border:1px solid var(--borda);
+  border-radius:10px;
+  background:#fff;
+  font-size:14px;
+  outline:none;
+  transition:border .15s, box-shadow .15s;
+}
+.u-input:focus-visible, .u-select:focus-visible{
+  border-color:var(--oliva-2);
+  box-shadow:var(--focus);
+}
+
+/* ===== Botão ===== */
+.u-btn{
+  margin-top:10px;
+  padding:10px 14px;
+  border:none;
+  border-radius:10px;
+  font-weight:700;
+  background:var(--oliva-2);
+  color:#fff;
+  cursor:pointer;
+  transition:filter .15s ease, transform .04s ease;
+}
+.u-btn:hover{ filter:brightness(.96) }
+.u-btn:active{ transform:translateY(1px) }
+.u-btn[disabled]{ opacity:.55; cursor:not-allowed }
+
+/* ===== Mensagens ===== */
+.u-error, .u-success{
+  padding:8px 10px;
+  border-radius:8px;
+  font-size:13px;
+  margin-top:6px;
+}
+.u-error{
+  background:#fde2e1;
+  color:#b21f1f;
+  border:1px solid #f5c2c0;
+}
+.u-success{
+  background:#e6f6e6;
+  color:#1b5e20;
+  border:1px solid #cceccc;
+}
+
+/* ===== Responsivo ===== */
+@media(max-width:500px){
+  .u-card{padding:20px}
+  .u-header{flex-direction:column; align-items:flex-start; gap:6px;}
+  .u-back{align-self:flex-end;}
+}
