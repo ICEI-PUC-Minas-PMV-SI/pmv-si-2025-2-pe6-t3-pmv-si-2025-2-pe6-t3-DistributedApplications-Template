@@ -1,4 +1,4 @@
-# TÍTULO DO PROJETO
+# SISTEMA DE AGENDA MÉDICA DISTRIBUÍDA
 
 `CURSO: Sistemas de Informação`
 
@@ -6,20 +6,34 @@
 
 `SEMESTRE: 6º`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+## MedLink
+
+MedLink é uma plataforma inovadora integrando soluções em saúde para pacientes, profissionais e instituições, facilitando o acesso, organização e otimização dos cuidados e processos clínicos.
+
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
-* Nome completo do aluno 5
-* Nome completo do aluno 6
+* Lucas Oliveira
+* Beatriz Castro
+* Ramir Aguiar Ribeiro Junior
+* Ricardo Andrade
+* André Fabiano
+* Felipe Paiva
+* Lucas Peres
 
 ## Orientador
 
-* Nome completo do professor 1
+* Kleber Jacques Ferreira de Souza
+
+## Tecnologias Utilizadas
+
+- **Backend:** Java 17, Spring Boot (Spring Web, Spring Data JPA com Hibernate, Spring Security, Spring Validation), MySQL (via Docker), autenticação JWT.
+- **Frontend Web:** React.js, Redux Toolkit, TypeScript, Material-UI/Tailwind CSS, Axios.
+- **Mobile:** Flutter, JavaScript/TypeScript, Axios/Fetch API.
+- **Infraestrutura e DevOps:** Docker, AWS (EC2 para backend, S3 para arquivos, WebSocket), Maven (backend), NPM/Yarn (frontend/mobile), Git & GitHub.
+
+Essas tecnologias garantem escalabilidade, segurança, integração eficiente entre plataformas e experiência amigável tanto na web quanto no mobile.
+
 
 # Planejamento
 
@@ -30,14 +44,8 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 | ETAPA 3         |[Planejar, desenvolver e gerenciar uma aplicação Web](docs/frontend-web.md) |
 | ETAPA 4        |[Planejar, desenvolver e gerenciar uma aplicação Móvel](docs/frontend-mobile.md) <br>  |
 | ETAPA 5         | [Apresentação](presentation/README.md) |
-## Instruções de utilização
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
 
-# Código
+## Apresentação em vídeo
 
-<li><a href="src/README.md"> Código Fonte</a></li>
-
-# Apresentação
-
-<li><a href="presentation/README.md"> Apresentação da solução</a></li>
+[![Clique para assistir ao vídeo de apresentação](https://img.youtube.com/vi/msiuBemQgNc/maxresdefault.jpg)](https://youtu.be/msiuBemQgNc?si=hUNgiGEnSu5ctFz6)
