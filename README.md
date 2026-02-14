@@ -1,4 +1,9 @@
-# TÍTULO DO PROJETO
+# Aluga aí
+
+<p align="center">
+  <img width="350" alt="logo" src="https://github.com/user-attachments/assets/101e6ccb-a5a2-4d3b-b17a-eaee959ddbfd" />
+</p>
+
 
 `CURSO: Sistemas de Informação`
 
@@ -6,20 +11,20 @@
 
 `SEMESTRE: 6º`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+O projeto visa desenvolver um sistema distribuído para o setor hoteleiro que organize e disponibilize informações claras e atualizadas sobre hospedagens, facilitando o processo de busca, reserva e pagamento para os clientes. A solução busca melhorar a experiência do usuário e, ao mesmo tempo, otimizar a gestão dos hotéis, reduzindo erros operacionais e aumentando a competitividade no mercado digital.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
-* Nome completo do aluno 5
-* Nome completo do aluno 6
+* Astor Franco de Sena Neto
+* Gustavo Silva Rossetti
+* Luiz Henrique Santos de Andrade
+* Matheus Carlos Fraga dos Santos
+* Sibelle Mendes Diniz
+* Victor Henrique Pereira
 
 ## Orientador
 
-* Nome completo do professor 1
+* Kleber Jacques Ferreira de Souza
 
 # Planejamento
 
@@ -36,7 +41,9 @@ Assim que a primeira versão do sistema estiver disponível, deverá complementa
 
 # Código
 
-<li><a href="src/README.md"> Código Fonte</a></li>
+* **Backend:** [Repositório do Backend](https://github.com/matheusfraga-tech/aluga-api-backend/)
+* **Frontend:** [Repositório do Frontend](https://github.com/Andradev101/aluga-api-frontend)
+* **Código Fonte:** [Código Fonte](src/README.md)
 
 # Apresentação
 

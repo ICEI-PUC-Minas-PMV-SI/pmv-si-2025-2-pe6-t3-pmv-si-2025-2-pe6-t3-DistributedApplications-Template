@@ -1,0 +1,97 @@
+@startuml
+  User o-- Contact : User has Contacts
+  User o-- UserType : User has UserType
+  Booking ..> HotelRoom : Booking depends on HotelRoom
+  User -- Booking : User is associated with Booking
+  
+  Hotel o-- HotelRoom : has
+  HotelRoom --> Hotel : belongsTo
+  HotelRoom ..>  HotelRoomStatus : HotelRoom depends on HotelRoomStatus
+  HotelRoom ..> RoomType
+  Bed ..> HotelRoom
+  
+  User o-- Payment
+  Payment ..> PaymentType
+  Booking -- BookingResult
+  
+  class Contact {
+      emailAddress: String
+      phoneNumber: String
+      fullName: String
+      socialName: String
+      address: String
+  }
+
+  class User {
+      type: UserType
+      username: String
+      birthDate: Date
+      contacts: List<Contact>
+      paymentMethods: List<Payment>
+  }
+
+  enum UserType {
+    customer
+    staff
+    sysadmin
+  }
+  class Payment {
+      type: PaymentType
+  }
+
+  enum PaymentType {
+    creditCard
+    bankTransfer
+    cash
+  }
+
+  class Booking {
+      startDatetime: Datetime
+      finalDatetime: Datetime
+      isExtended: Boolean
+      isConfirmed: Boolean
+      room: HotelRoom
+      user: User
+
+      BookingResult confirmBooking()
+      boolean cancelBooking()
+      boolean extendBooking()
+      Datetime bookedUntil()
+      User bookedBy()
+  }
+
+  class BookingResult {
+    isSuccess: Boolean
+    statusCode: String
+    message: String
+  }
+
+  class Hotel {
+    name: String
+    contact: Contact
+    rooms: List<HotelRoom>
+  }
+
+  class HotelRoom {
+    roomCode: String
+    type: RoomType
+    status: HotelRoomStatus
+    size: Float
+    beds: Bed
+  }
+
+  class Bed {
+    type: BedType
+  }
+
+  enum RoomType {
+    standard
+    deluxe
+    suite
+  }
+  enum HotelRoomStatus {
+    free
+    booked
+    under_maintenance
+  }
+@enduml

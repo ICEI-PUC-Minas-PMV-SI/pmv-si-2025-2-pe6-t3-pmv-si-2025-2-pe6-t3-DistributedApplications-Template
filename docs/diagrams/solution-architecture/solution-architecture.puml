@@ -1,0 +1,46 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!$ICONURL = "https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/v3.0.0/icons"
+!include $ICONURL/material/security.puml
+!include $ICONURL/font-awesome-6/python.puml
+!include $ICONURL/font-awesome-6/react.puml
+!include $ICONURL/font-awesome-6/user_shield.puml
+!include $ICONURL/font-awesome-6/user_tie.puml
+!include $ICONURL/font-awesome/forumbee.puml
+!include $ICONURL/devicons/postgresql.puml
+
+Person(Customer, "Customer", "Regular Customer")
+Person(Admin, "Admin", "Admin", $sprite="user_tie")
+
+System_Boundary(c1, "AlugaAi"){
+  
+  Container(frontend_web, "React Native", "React Native SPA (web) \nAndroid app \niOS app", "Allows customers/admins to navigate and manage their informations", $sprite="react")
+  
+  Container(backend_service_admin, "Admin Services", "Python", "Manage the database and its entities", $sprite="python")
+  Container(backend_service_booking, "Booking Services", "Python", "Manage booking creation and management", $sprite="python")
+  Container(backend_service_review, "Review Services", "Python", "Manage reviews made by customers", $sprite="python")
+  Container(backend_service_user, "User Services", "Python", "Manage users\nAll their info", $sprite="python")
+
+  ContainerDb(system_database, "Database", "POSTGRES SQL", "Persists the data", $sprite="postgresql")
+}
+System_Boundary(c2, "third-party systems") {
+  Container(backend_service_payment, "Payment Services", "Beeceptor", "Manage payments requests", $sprite="forumbee")
+
+}
+
+
+Rel_D(Customer, frontend_web, "Updates their own information", "HTTPS", $sprite="security,scale=0.5")
+Rel_D(Admin, frontend_web, "Manages all services through", "HTTPS", $sprite="security,scale=0.5")
+
+Rel_D(frontend_web, backend_service_booking, "admin/users uses", "JSON")
+Rel_D(frontend_web, backend_service_admin, "admin uses", "JSON", $sprite="user_shield,scale=0.5")
+Rel_D(frontend_web, backend_service_review, "admin/users uses", "JSON")
+Rel_D(frontend_web, backend_service_user, "admin/users uses", "JSON")
+Rel_U(backend_service_booking, backend_service_payment, "mocks a failure/success response (mocking a third-party payment system)", "JSON")
+
+
+Rel_D(backend_service_admin, system_database, "SQL/ORM")
+Rel_D(backend_service_booking, system_database, "SQL/ORM")
+Rel_D(backend_service_review, system_database, "SQL/ORM")
+Rel_D(backend_service_user, system_database, "SQL/ORM")
+@enduml

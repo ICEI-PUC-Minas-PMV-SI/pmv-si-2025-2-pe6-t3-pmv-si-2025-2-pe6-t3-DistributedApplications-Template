@@ -1,0 +1,29 @@
+@startuml user
+  start
+  :Every request*;
+  if(is route protected?) then (yes)
+      :Protected route dependency injection;
+      note left
+        checks for current user and permissions
+      end note
+    if (valid credentials?) then (yes)
+      while (expired access_token?) is (yes)
+        :Refresh tokens;
+      endwhile
+      if(is route role-based?) then (yes) 
+        if(is role permissive enough?) then (yes) 
+        else (no)
+          #pink:User has no such privilege;
+          stop
+        endif
+      else(no)
+      endif
+    else (no)
+      #pink:Unauthorized access, please authenticate;
+      stop
+    endif
+    #palegreen:Perform request;
+  else(no)
+  endif
+  end
+@enduml

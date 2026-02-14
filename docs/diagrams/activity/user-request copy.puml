@@ -1,0 +1,28 @@
+@startuml user
+  start
+  :Every request*;
+  if(is route protected?) then (yes)
+    :Protected route dependency injection;
+    if (valid credentials?) then (yes)
+      :Check access_token;
+      :Check refresh_token;
+      if (is access_token expired?) then (yes)
+        if (is refresh_token expired?) then (yes)
+          #pink:Unauthorized access, please authenticate;
+          end
+        else (no)
+          :Create new access_token;
+          :Create new refresh_token;
+        endif
+      else (no)
+      endif
+    else (no)
+      #pink:Unauthorized access, please authenticate;
+      end
+    endif
+  else (no)
+    
+  endif
+    #palegreen:Perform request;
+  end
+@enduml

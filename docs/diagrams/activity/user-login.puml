@@ -1,0 +1,19 @@
+@startuml user
+  start
+  :Login;
+    if (Login success?) then (yes)
+      :Generate JWT tokens;
+      note right
+        access_token
+        refresh_token
+
+        x minutes expiration
+      end note
+      #palegreen:Set cookies;
+      #palegreen:Return\naccess refresh\ntokens;
+    else (no)
+      #pink:Invalid access_token;
+      stop
+    endif
+  end
+@endum

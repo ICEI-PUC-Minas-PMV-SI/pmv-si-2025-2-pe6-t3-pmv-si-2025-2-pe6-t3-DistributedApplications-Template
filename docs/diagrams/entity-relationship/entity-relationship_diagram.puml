@@ -1,0 +1,90 @@
+@startuml
+    skinparam linetype ortho
+    entity "User" {
+        *userId: UUID <<PK>>
+        --
+        *userName: text
+        *password: text (encrypted)
+        *type: text
+        *birthDate: datetime
+        *emailAddress: text
+        *phoneNumber: text
+        firstName: text
+        lastName: text
+        socialName: text
+        address: text
+      }
+
+      entity "Payment" {
+          *paymentId: UUID <<PK>>
+          *userId: UUID <<FK>>
+          *type: text
+      }
+
+      entity "CreditCardPayment" {
+          *paymentId: UUID <<PK>> <<FK>>
+          --
+          ccNumber: text (encrypted)
+          ccValidityDate: Date
+      }
+
+      entity "BankTransferPayment" {
+          *paymentId: UUID <<PK>> <<FK>>
+          --
+          bankAccount: text
+          bankName: text
+      }
+
+      entity "Booking" {
+        *bookingId: UUID <<PK>>
+        *userId: UUID <<FK>>
+        *roomId <<FK>>
+        --
+        *startDatetime: datetime
+        *finalDatetime: datetime
+        isExtended: boolean
+        isConfirmed: boolean
+      }
+
+      entity "Hotel" {
+        *hotelId: UUID <<PK>>
+        --
+        *name: text
+        *address: text
+      }
+
+      entity "Room" {
+        *roomId: UUID <<PK>>
+        *hotelId <<FK>>
+        --
+        *type: text
+        *status: text
+        *size: number
+      }
+
+      entity "PropType" {
+        *propTypeId: UUID <<PK>>
+        --
+        name: text
+        category: text
+        unit: text
+      }
+
+      entity "RoomProp" {
+        *propId: UUID <<PK>>
+        roomId: UUID <<FK>>
+        propTypeId: UUID <<FK>>
+        --
+        value: text
+        description: text
+      }
+
+      Payment }|--|| User
+      Booking }|--|| User
+      Booking }|--|| Hotel
+      Room }|--|| Hotel
+      Room }|--|{ RoomProp
+      RoomProp }|--|| PropType
+      BankTransferPayment ||--|| Payment
+      CreditCardPayment ||--|| Payment
+@enduml

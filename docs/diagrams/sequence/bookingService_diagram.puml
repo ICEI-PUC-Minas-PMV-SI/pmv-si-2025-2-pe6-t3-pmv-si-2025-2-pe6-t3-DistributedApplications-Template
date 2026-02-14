@@ -1,0 +1,65 @@
+@startuml
+  participant Backend
+  participant BookingService
+  participant User
+  participant HotelRoom
+  participant PaymentService
+
+  group 200 OK
+    Backend -> BookingService : passing context payload
+      activate BookingService
+    BookingService -> User : instantiates Booking object
+      activate User
+    User -> User : check User business rules
+    User -> HotelRoom : checks Asset to book
+      activate HotelRoom
+    HotelRoom -> HotelRoom  : checks status
+    HotelRoom -> HotelRoom  : checks availability
+    HotelRoom -> PaymentService  : process payment
+      activate PaymentService
+    
+    PaymentService --> HotelRoom
+      deactivate PaymentService
+    HotelRoom --> User : returns available Asset
+      deactivate HotelRoom
+    User --> BookingService : returns successful Booking
+      deactivate User
+    BookingService --> BookingService : process pricing
+    BookingService --> Backend : returns location & pricing payload
+      deactivate BookingService
+  end
+  group 300-500 ERROR: business rule error
+    Backend -> BookingService : passing context payload
+      activate BookingService
+    
+    BookingService -> User : instantiates Booking object
+      activate User
+    User -[#red]-> User : check User business rules
+    User -[#red]-> BookingService : User business rules ERROR
+      deactivate User
+    BookingService -[#red]-> Backend : 4## ERROR
+      deactivate BookingService
+  end
+
+  group 300-500 ERROR
+    Backend -> BookingService : passing context payload
+      activate BookingService
+    BookingService -> User : instantiates Booking object
+      activate User
+    User -> HotelRoom : checks Asset to book
+      activate HotelRoom
+    HotelRoom -> HotelRoom  : checks status
+    HotelRoom -> HotelRoom  : checks availability
+    HotelRoom -> PaymentService  : process payment
+      activate PaymentService
+    
+    PaymentService -[#red]-> HotelRoom : possibly payment error
+      deactivate PaymentService
+    HotelRoom -[#red]-> User : Asset booking ERROR
+      deactivate HotelRoom
+    User -[#red]-> BookingService : Asset booking ERROR
+      deactivate User
+    BookingService -[#red]-> Backend : 4## ERROR
+      deactivate BookingService
+  end
+@enduml
