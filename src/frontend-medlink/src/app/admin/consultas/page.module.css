@@ -1,0 +1,198 @@
+.admin-consultas {
+  width: 100%;
+  padding-top: 8px;
+  padding-bottom: 24px;
+}
+
+.admin-consultas__title {
+  margin-bottom: 16px;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.admin-consultas__filters {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr; /* mobile */
+  background: var(--color-surface, #fff);
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border, #e5e7eb);
+}
+
+.admin-consultas__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-consultas__field--span2 {
+  grid-column: span 1;
+}
+
+.admin-consultas__actions {
+  grid-column: span 1;
+  display: flex;
+  gap: 8px;
+}
+
+.admin-consultas__tablewrap {
+  overflow: auto;
+  border-radius: 8px;
+  border: 1px solid var(--color-border, #e5e7eb);
+  margin-top: 16px;
+  background: var(--color-surface, #fff);
+}
+
+.ac-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.ac-table thead {
+  background: var(--color-bg, #f3f4f6);
+  text-align: left;
+}
+
+.ac-table th,
+.ac-table td {
+  padding: 12px;
+  vertical-align: top;
+  border-top: 1px solid var(--color-border, #e5e7eb);
+}
+
+.ac-cell--error {
+  color: var(--color-danger, #b91c1c);
+  font-weight: 600;
+}
+
+.ac-strong {
+  font-weight: 600;
+}
+
+.ac-subtle {
+  color: var(--color-muted, #6b7280);
+  font-size: 0.75rem;
+}
+
+.ac-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.ac-input {
+  width: 100%;
+  border: 1px solid var(--color-border, #e5e7eb);
+  border-radius: 6px;
+  padding: 8px 12px;
+  background: var(--color-surface, #fff);
+}
+
+.ac-input:focus {
+  outline: 2px solid var(--color-primary, #3b82f6);
+  outline-offset: 1px;
+}
+
+.ac-input--sm {
+  padding: 6px 10px;
+  font-size: 0.875rem;
+}
+
+.ac-button {
+  border: 1px solid var(--color-border, #e5e7eb);
+  background: var(--color-surface, #fff);
+  color: var(--color-text, #111827);
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.ac-button:hover:not(:disabled) {
+  background: var(--color-hover, #f9fafb);
+}
+
+.ac-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.ac-button--primary {
+  background: var(--color-primary, #2563eb);
+  color: #fff;
+  border-color: var(--color-primary, #2563eb);
+}
+
+.ac-button--ghost {
+  background: var(--color-surface, #fff);
+  border-color: #d1d5db;
+}
+
+.ac-muted {
+  color: var(--color-muted, #6b7280);
+  font-size: 0.875rem;
+}
+
+.ac-chip {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+}
+
+.ac-chip--ok {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.ac-chip--danger {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.ac-chip--muted {
+  background: var(--color-bg, #f3f4f6);
+  color: #374151;
+}
+
+.admin-consultas__pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.admin-consultas__pager {
+  display: flex;
+  gap: 8px;
+}
+
+@media (min-width: 640px) {
+  .admin-consultas__filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .admin-consultas__field--span2 {
+    grid-column: span 2;
+  }
+  .admin-consultas__actions {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .admin-consultas__filters {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+  .admin-consultas__field--span2 {
+    grid-column: span 2;
+  }
+  .admin-consultas__actions {
+    grid-column: span 5;
+  }
+}
+
+.ac-table tr td:first-child {
+  white-space: nowrap;
+}

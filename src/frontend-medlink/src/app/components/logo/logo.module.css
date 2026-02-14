@@ -1,0 +1,11 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.logo :global(img) {
+  display: inline-block;
+}
